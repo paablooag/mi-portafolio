@@ -1,42 +1,49 @@
-# Nuxt 3 Minimal Starter
+# 🖥️ Mi Portafolio
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+¡Bienvenido/a a mi portafolio personal!  
+Aquí encontrarás información sobre mí, mis proyectos, habilidades y formas de contacto.  
+Este sitio está construido con Nuxt 3 y Vue, con un diseño inspirado en terminal retro.
 
-## Setup
+---
 
-Make sure to install the dependencies:
+## 🚀 Tecnologías utilizadas
 
-```bash
-# yarn
-yarn install
+- [Nuxt 3](https://nuxt.com/)
+- [Vue 3](https://vuejs.org/)
+- [GSAP](https://greensock.com/gsap/) para animaciones
+- [Formspree](https://formspree.io/) para el formulario de contacto
 
-# npm
+---
+
+## 📬 Contacto
+
+Puedes contactarme a través del formulario en la sección **CONTACT.SYS**.  
+¡Tu mensaje llegará directamente a mi correo!
+
+---
+
+## 🕹️ ¿Easter Egg?
+
+¡Sí!  
+**Prueba presionar `Ctrl` + `+` en el navegador mientras navegas por el portafolio...**
+
+<details>
+  <summary>¿Qué sucede?</summary>
+  <br>
+  <b>¡Averigualo tu mismo!</b>
+  <br>
+</details>
+
+---
+
+## 🛠️ Instalación y desarrollo local
+
+```sh
+git clone https://github.com/paablooag/mi-portafolio.git
+cd mi-portafolio
 npm install
-
-# pnpm
-pnpm install
-```
-
-## Development Server
-
-Start the development server on http://localhost:3000
-
-```bash
 npm run dev
 ```
+---
 
-## Production
-
-Build the application for production:
-
-```bash
-npm run build
-```
-
-Locally preview production build:
-
-```bash
-npm run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+_Disfruta explorando mi portafolio y no dudes en contactarme para colaborar o charlar sobre tecnología._
