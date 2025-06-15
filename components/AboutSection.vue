@@ -1,7 +1,7 @@
 <template>
   <div class="about-section">
     <h2 class="section-title">ABOUT_ME.EXE</h2>
-    
+
     <div class="about-content">
       <div class="personal-info">
         <div class="info-block">
@@ -29,7 +29,7 @@
             </div>
           </div>
         </div>
-        
+
         <div class="info-block">
           <h3 class="block-title">ESPECIALIZACIÓN</h3>
           <div class="specialization">
@@ -57,7 +57,7 @@
           </div>
         </div>
       </div>
-      
+
       <div class="tech-stack-section">
         <h3 class="block-title">TECNOLOGÍAS</h3>
         <div class="tech-categories">
@@ -72,7 +72,7 @@
               <span class="tech-tag">GSAP</span>
             </div>
           </div>
-          
+
           <div class="tech-category">
             <h4 class="category-title">Backend & Frameworks</h4>
             <div class="tech-tags">
@@ -82,7 +82,7 @@
               <span class="tech-tag">Svelte</span>
             </div>
           </div>
-          
+
           <div class="tech-category">
             <h4 class="category-title">SEO & Tools</h4>
             <div class="tech-tags">
@@ -95,18 +95,18 @@
           </div>
         </div>
       </div>
-      
+
       <div class="passion-section">
         <h3 class="block-title">MI PASIÓN</h3>
         <div class="passion-text">
           <p>
-            La programación y el desarrollo front-end son mi verdadera pasión. 
-            Me encanta crear interfaces intuitivas y visualmente atractivas que 
+            La programación y el desarrollo front-end son mi verdadera pasión.
+            Me encanta crear interfaces intuitivas y visualmente atractivas que
             proporcionen una experiencia de usuario excelente.
           </p>
           <p>
-            Siempre estoy motivado por aprender nuevas tecnologías y frameworks 
-            que me permitan llevar mis proyectos al siguiente nivel. Ver cómo un 
+            Siempre estoy motivado por aprender nuevas tecnologías y frameworks
+            que me permitan llevar mis proyectos al siguiente nivel. Ver cómo un
             diseño cobra vida a través del código es algo que siempre me inspira.
           </p>
         </div>
@@ -120,39 +120,29 @@ import { onMounted } from 'vue'
 import { gsap } from 'gsap'
 
 onMounted(() => {
+  const isMobile = window.innerWidth < 768
   const tl = gsap.timeline()
-  
-  tl.fromTo('.section-title', 
-    { opacity: 0, y: -30 }, 
-    { opacity: 1, y: 0, duration: 0.8 }
-  )
-  .fromTo('.info-block', 
-    { opacity: 0, x: -50 }, 
-    { opacity: 1, x: 0, duration: 0.6, stagger: 0.2 }
-  )
-  .fromTo('.spec-item', 
-    { opacity: 0, scale: 0.8 }, 
-    { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1 }
-  )
-  .fromTo('.tech-category', 
-    { opacity: 0, y: 30 }, 
-    { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 }
-  )
-  .fromTo('.passion-text p', 
-    { opacity: 0, y: 20 }, 
-    { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 }
-  )
+
+  if (isMobile) {
+    tl.fromTo('.section-title', { opacity: 0 }, { opacity: 1, duration: 0.6 })
+  } else {
+    tl.fromTo('.section-title', { opacity: 0, y: -30 }, { opacity: 1, y: 0, duration: 0.8 })
+      .fromTo('.info-block', { opacity: 0, x: -50 }, { opacity: 1, x: 0, duration: 0.6, stagger: 0.2 })
+      .fromTo('.spec-item', { opacity: 0, scale: 0.8 }, { opacity: 1, scale: 1, duration: 0.5, stagger: 0.1 })
+      .fromTo('.tech-category', { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 })
+      .fromTo('.passion-text p', { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.6, stagger: 0.2 })
+  }
 })
 </script>
 
 <style scoped>
 .about-section {
-  padding: 2rem 0;
+  padding: 2rem 1rem;
 }
 
 .section-title {
   color: #00ff41;
-  font-size: 2rem;
+  font-size: 1.8rem;
   margin-bottom: 2rem;
   text-shadow: 0 0 15px #00ff41;
   border-left: 4px solid #00ff41;
@@ -160,8 +150,35 @@ onMounted(() => {
 }
 
 .about-content {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 2rem;
+}
+
+/* Pantallas grandes */
+@media (min-width: 1024px) {
+  .about-content {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .personal-info,
+  .tech-stack-section {
+    flex: 1;
+    min-width: 320px;
+  }
+
+  .passion-section {
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .block-title {
+    font-size: 1.3rem;
+  }
 }
 
 .info-block {
@@ -174,7 +191,7 @@ onMounted(() => {
 
 .block-title {
   color: #ffb000;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px #ffb000;
 }
@@ -196,16 +213,23 @@ onMounted(() => {
 .label {
   color: #00ffff;
   font-weight: bold;
+  font-size: 0.95rem;
 }
 
 .value {
   color: #00ff41;
+  font-size: 0.95rem;
 }
 
 .specialization {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .specialization {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  }
 }
 
 .spec-item {
@@ -230,11 +254,12 @@ onMounted(() => {
 .spec-item h4 {
   color: #00ffff;
   margin-bottom: 0.25rem;
+  font-size: 1rem;
 }
 
 .spec-item p {
   color: #00ff41;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
 }
 
 .tech-stack-section {
@@ -245,9 +270,14 @@ onMounted(() => {
 }
 
 .tech-categories {
-  display: flex;
-  flex-direction: column;
+  display: grid;
   gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .tech-categories {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  }
 }
 
 .tech-category {
@@ -258,7 +288,7 @@ onMounted(() => {
 
 .category-title {
   color: #00ffff;
-  font-size: 1.1rem;
+  font-size: 1rem;
   margin-bottom: 0.75rem;
 }
 
@@ -266,6 +296,7 @@ onMounted(() => {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
+  justify-content: center;
 }
 
 .tech-tag {
@@ -273,7 +304,7 @@ onMounted(() => {
   color: #00ff41;
   padding: 0.25rem 0.75rem;
   border-radius: 15px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   border: 1px solid #00ff41;
   transition: all 0.3s ease;
 }
@@ -304,28 +335,73 @@ onMounted(() => {
   text-align: justify;
 }
 
+/* ==== MOBILE OPTIMIZATION ==== */
 @media (max-width: 768px) {
   .section-title {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    padding-left: 0.75rem;
+    margin-bottom: 1.5rem;
   }
-  
+
+  .block-title {
+    font-size: 1rem;
+  }
+
   .info-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .info-item {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.25rem;
   }
-  
+
+  .label,
+  .value {
+    font-size: 0.85rem;
+  }
+
   .spec-item {
     flex-direction: column;
     text-align: center;
+    padding: 0.75rem;
   }
-  
+
+  .spec-icon {
+    font-size: 1.5rem;
+  }
+
+  .spec-item h4 {
+    font-size: 0.95rem;
+  }
+
+  .spec-item p {
+    font-size: 0.8rem;
+  }
+
   .tech-tags {
     justify-content: center;
   }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.6rem;
+  }
+
+  .category-title {
+    font-size: 0.95rem;
+  }
+
+  .passion-text p {
+    font-size: 0.85rem;
+  }
+
+  .info-block,
+  .tech-stack-section,
+  .passion-section {
+    padding: 1rem;
+  }
 }
 </style>
+

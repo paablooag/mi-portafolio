@@ -231,6 +231,7 @@ onMounted(() => {
   text-shadow: 0 0 15px #00ff41;
   border-left: 4px solid #00ff41;
   padding-left: 1rem;
+  word-break: break-word;
 }
 
 .contact-content {
@@ -244,6 +245,7 @@ onMounted(() => {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+  min-width: 0;
 }
 
 .info-card, .availability-card {
@@ -251,6 +253,8 @@ onMounted(() => {
   border: 2px solid #00ff41;
   border-radius: 15px;
   padding: 1.5rem;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .card-title {
@@ -258,6 +262,7 @@ onMounted(() => {
   font-size: 1.2rem;
   margin-bottom: 1rem;
   text-shadow: 0 0 10px #00ff41;
+  word-break: break-word;
 }
 
 .contact-details {
@@ -270,17 +275,21 @@ onMounted(() => {
   display: flex;
   align-items: center;
   gap: 1rem;
+  flex-wrap: wrap;
+  min-width: 0;
 }
 
 .contact-icon {
   font-size: 1.2rem;
   width: 2rem;
+  flex-shrink: 0;
 }
 
 .contact-link {
   color: #00ffff;
   text-decoration: none;
   transition: all 0.3s ease;
+  word-break: break-all;
 }
 
 .contact-link:hover {
@@ -290,6 +299,7 @@ onMounted(() => {
 
 .contact-text {
   color: #00ff41;
+  word-break: break-word;
 }
 
 .status-indicator {
@@ -305,6 +315,7 @@ onMounted(() => {
   background: #00ff41;
   border-radius: 50%;
   box-shadow: 0 0 15px #00ff41;
+  flex-shrink: 0;
 }
 
 .status-text {
@@ -322,6 +333,8 @@ onMounted(() => {
   border: 2px solid #00ff41;
   border-radius: 10px;
   overflow: hidden;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .terminal-header {
@@ -381,6 +394,8 @@ onMounted(() => {
   color: #00ff41;
   font-family: 'Courier Prime', monospace;
   font-size: 0.9rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .form-input:focus, .form-textarea:focus {
@@ -407,6 +422,8 @@ onMounted(() => {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .submit-btn:hover:not(:disabled) {
@@ -425,6 +442,7 @@ onMounted(() => {
   padding: 1rem;
   background: rgba(0, 0, 0, 0.5);
   border-radius: 5px;
+  word-break: break-word;
 }
 
 .output-line {
@@ -440,20 +458,140 @@ onMounted(() => {
   color: #ff4444;
 }
 
-@media (max-width: 768px) {
+/* Tablet */
+@media (max-width: 1024px) {
   .contact-content {
     grid-template-columns: 1fr;
     gap: 2rem;
   }
-  
   .terminal-body {
-    padding: 1rem;
+    padding: 1.5rem;
   }
-  
+  .info-card, .availability-card {
+    padding: 1.2rem;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 1.2rem 0.5rem;
+  }
+  .section-title {
+    font-size: 1.3rem;
+    padding-left: 0.7rem;
+    margin-bottom: 1.2rem;
+  }
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .contact-info {
+    gap: 1.2rem;
+  }
+  .info-card, .availability-card {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  .card-title {
+    font-size: 1rem;
+    margin-bottom: 0.7rem;
+  }
+  .contact-details {
+    gap: 0.7rem;
+  }
   .contact-item {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.25rem;
+    gap: 0.2rem;
+  }
+  .contact-icon {
+    font-size: 1rem;
+    width: 1.5rem;
+  }
+  .status-dot {
+    width: 10px;
+    height: 10px;
+  }
+  .terminal-window {
+    border-radius: 7px;
+  }
+  .terminal-header {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.8rem;
+  }
+  .terminal-title {
+    font-size: 0.8rem;
+  }
+  .terminal-body {
+    padding: 1rem;
+  }
+  .contact-form {
+    gap: 1rem;
+  }
+  .form-label {
+    font-size: 0.85rem;
+  }
+  .form-input, .form-textarea {
+    font-size: 0.85rem;
+    padding: 0.6rem;
+    border-radius: 4px;
+  }
+  .submit-btn {
+    font-size: 0.95rem;
+    padding: 0.8rem 1.2rem;
+    border-radius: 6px;
+  }
+  .terminal-output {
+    padding: 0.7rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 0.5rem 0.2rem;
+  }
+  .section-title {
+    font-size: 1.05rem;
+    padding-left: 0.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .info-card, .availability-card {
+    padding: 0.6rem;
+    border-radius: 7px;
+  }
+  .card-title {
+    font-size: 0.9rem;
+    margin-bottom: 0.5rem;
+  }
+  .terminal-header {
+    padding: 0.3rem 0.4rem;
+    font-size: 0.7rem;
+  }
+  .terminal-title {
+    font-size: 0.7rem;
+  }
+  .terminal-body {
+    padding: 0.5rem;
+  }
+  .form-label {
+    font-size: 0.8rem;
+  }
+  .form-input, .form-textarea {
+    font-size: 0.8rem;
+    padding: 0.4rem;
+    border-radius: 3px;
+  }
+  .submit-btn {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.8rem;
+    border-radius: 5px;
+  }
+  .terminal-output {
+    padding: 0.5rem;
+    font-size: 0.8rem;
   }
 }
 </style>

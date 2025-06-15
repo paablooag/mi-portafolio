@@ -111,7 +111,6 @@ onMounted(() => {
   )
 })
 </script>
-
 <style scoped>
 .experience-section {
   padding: 2rem 0;
@@ -280,31 +279,87 @@ onMounted(() => {
   font-size: 0.9rem;
 }
 
+/* ==== RESPONSIVE MOBILE STYLES ==== */
 @media (max-width: 768px) {
+  .section-title {
+    font-size: 1.5rem;
+    padding-left: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
   .timeline {
     padding-left: 1rem;
   }
-  
+
   .timeline::before {
     left: 0.5rem;
   }
-  
+
   .timeline-marker {
-    left: -1.5rem;
+    left: -1.2rem;
   }
-  
+
+  .timeline-dot {
+    width: 12px;
+    height: 12px;
+  }
+
   .timeline-content {
     margin-left: 0.5rem;
+    padding: 1rem;
   }
-  
+
+  .job-title {
+    font-size: 1.1rem;
+  }
+
+  .job-period {
+    font-size: 0.8rem;
+  }
+
+  .company {
+    font-size: 1rem;
+  }
+
+  .location {
+    font-size: 0.8rem;
+  }
+
+  .job-description p {
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.4rem;
+  }
+
   .job-header {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.5rem;
+    gap: 0.3rem;
   }
-  
+
+  .subsection-title {
+    font-size: 1.3rem;
+  }
+
   .education-grid {
     grid-template-columns: 1fr;
+  }
+
+  .education-item {
+    padding: 0.75rem;
+  }
+
+  .edu-title {
+    font-size: 0.95rem;
+  }
+
+  .edu-period,
+  .edu-institution {
+    font-size: 0.85rem;
   }
 }
 </style>
