@@ -30,9 +30,8 @@ Puedes contactarme a través del formulario en la sección **CONTACT.SYS**.
 <details>
   <summary>¿Qué sucede?</summary>
   <br>
-  <b>¡La interfaz se vuelve aún más retro y los textos se agrandan como si estuvieras hackeando la Matrix!</b>
+  <b>¡Averigualo tu mismo!</b>
   <br>
-  <i>(Pista: el sitio está optimizado para verse genial incluso con zoom alto, y puede que encuentres algún mensaje oculto en la consola del navegador...)</i>
 </details>
 
 ---
